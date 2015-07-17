@@ -5,7 +5,9 @@
 		bdr1  = $('#border1'),
 		bdr2  = $('#border2'),
 		bdr3  = $('#border3'),
-		nvTxt = $('#menu_txt');
+		nvTxt = $('#menu_txt'),
+		rValue1,
+		rValue3;
 
 		navBtn.on('click', navi);
 
@@ -19,11 +21,12 @@
 								duration:500,
 								step:function(flame){
 									$(this).css({
-										transform:'rotate(' + (flame * 225) +'deg)'
+										transform:'rotate(' + (flame * 135) +'deg)'
 									});
 								},
 								complete:function(){
 									$(this).css('zIndex', 0);
+									rValue1 = 45;
 								}
 							});
 				bdr3.animate({
@@ -33,11 +36,12 @@
 								duration:500,
 								step:function(flame){
 									$(this).css({
-										transform:'rotate(' + (flame * -225) +'deg)'
+										transform:'rotate(' + (flame * -135) +'deg)'
 									});
 								},
 								complete:function(){
 									$(this).css('zIndex', 0);
+									rValue3 = -45;
 								}
 							});
 				nvTxt.text("Close");
@@ -50,7 +54,7 @@
 								duration:500,
 								step:function(flame){
 									$(this).css({
-										transform:'rotate(' + (flame * 180) +'deg)'
+										transform:'rotate(' + (rValue1 + flame * 135) +'deg)'
 									});
 								},
 								complete:function(){
@@ -64,7 +68,7 @@
 								duration:500,
 								step:function(flame){
 									$(this).css({
-										transform:'rotate(' + (flame * -180) +'deg)'
+										transform:'rotate(' + (rValue3 + flame * -135) +'deg)'
 									});
 								},
 								complete:function(){
